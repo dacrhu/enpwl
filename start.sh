@@ -29,7 +29,7 @@ if [ ! -d /root/.acme.sh/$ENPWL_DOMAIN ] ; then
     killall nginx
 fi
 
-cat /default-domain.conf | sed 's:%%DOMAIN%%:'$ENPWL_DOMAIN':g' | sed 's:%%MAXBODYSIZE%%:'$ENPWL_CLIENT_MAX_BODY_SIZE':g' | sed 's:%%PORT%%:'$ENPWL_APP_PORT':g' > /etc/nginx/conf.d/default.conf
+cat /default-domain.conf | sed 's:%%DOMAIN%%:'$ENPWL_DOMAIN':g' | sed 's:%%MAXBODYSIZE%%:'$ENPWL_CLIENT_MAX_BODY_SIZE':g' | sed 's:%%PORT%%:'$ENPWL_APP_PORT':g' | sed 's:%%HOST%%:'$ENPWL_APP_HOST':g' > /etc/nginx/conf.d/default.conf
 kill -HUP $(/bin/pidof crond)
 crond
 sed -i "s:daemon on;:daemon off;:g" /etc/nginx/nginx.conf
