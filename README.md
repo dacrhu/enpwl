@@ -34,7 +34,7 @@ docker run \
     --env ENPWL_DOMAIN=example.com \
     --env ENPWL_DOMAIN_WWW=true \
     --env ENPWL_CLIENT_MAX_BODY_SIZE=20M \
-    --env ENPWL_APP_HOST=mynodeapp
+    --env ENPWL_APP_HOST=mynodeapp \
     --env ENPWL_APP_PORT=8080 \
     dacrhu/enpwl:latest
 
